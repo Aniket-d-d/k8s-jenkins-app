@@ -12,6 +12,7 @@ This repository provides instructions and configurations for setting up a Kubern
 - [Connecting "dev-server" as Jenkins Agent Node](#connecting-dev-server-as-jenkins-agent-node)
 - [Deploying Kubernetes Application with Jenkins](#deploying-kubernetes-application-with-jenkins)
 - [Accessing the Application](#accessing-the-application)
+- [Adding "dev-server" as Known host](#adding-dev-server-as-known-hosts)
 
 ## Prerequisites
 
@@ -85,7 +86,7 @@ While working with Jenkins it is advised to build jobs in a distributed builds a
 Before creating/adding a node/agent on jenkins, we need to create private SSH key so that we can connect "ic-server" with "dev-server".
 
 Steps to setup private SSH key:
-1. Connect to "ic-server" using SSH.
+1. Connect to "ci-server" using SSH.
 2. If you use ```ls -la``` at your home location, you might see ```.ssh``` directory.
 3. Enter Command: ```cd .ssh```.
 4. Enter Command: ```ssh-keygen``` and press enter 4 times.
@@ -112,7 +113,7 @@ Steps to create Node-Agent on Jenkins:
 11. Create Credentials with Kind: ```SSH Username with private key```.
     Set ```ubuntu``` username and id : ```agent-connect-key```. And put the contents of id_rsa file in ```Private Key``` Enter directly box.
 12. Set ```Host Key Verification Strategy``` as ```Non-Verifying Verification Strategy.```
-    In my case it "Known hosts file verification strategy". To do that see below.
+    In my case it ```Known hosts file verification strategy```. To do that see [below](#adding-dev-server-as-known-hosts).
 14. Save and launch the agent. You can build jobs on "dev-server" now.
 
 
@@ -123,4 +124,16 @@ Build a new Job on jenkins and copy the Jenkinsfile from this repo to pipeline s
 
 ## Accessing the Application
 Open the port 30009 on "dev-server" instance. You can Access the Application over there.
+
+
+## Adding "dev-server" as Known host
+
+To add "dev-server" as Known hosts for Jenkins's ```Known hosts file verification strategy```.
+1. Connect to "ci-server" using SSH.
+2. Enter command: ```mkdir -p /var/lib/jenkins/.ssh```
+3. Enter command: ```sudo su -```. To add "dev-server" as known host we need super user access.
+4. Enter command: ```ssh-keyscan -H dev-server-IP >> /var/lib/jenkins/.ssh/known_hosts``` This will tell jenkins that "dev-server" is a known and authenticated host.
+5. Done. You can connect "dev-server" as agent-node.
+
+
 Thankyou.
