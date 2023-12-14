@@ -120,4 +120,7 @@ Steps to create Node-Agent on Jenkins:
 
 Build a new Job on jenkins and copy the Jenkinsfile from this repo to pipeline script. Jenkins will deploy the application on minikube cluster in "dev-server".
 
+
+## Accessing the Application
+Open the port 30009 on "dev-server" instance. You can Access the Application over there.
 Thankyou.
