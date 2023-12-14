@@ -14,6 +14,7 @@ This repository provides instructions and configurations for setting up a Kubern
 - [Accessing the Application](#accessing-the-application)
 - [Adding "dev-server" as Known host](#adding-dev-server-as-known-host)
 
+  
 ## Prerequisites
 
 Make sure you have the following prerequisites before starting the setup:
@@ -113,7 +114,7 @@ Steps to create Node-Agent on Jenkins:
 11. Create Credentials with Kind: ```SSH Username with private key```.
     Set ```ubuntu``` username and id : ```agent-connect-key```. And put the contents of id_rsa file in ```Private Key``` Enter directly box.
 12. Set ```Host Key Verification Strategy``` as ```Non-Verifying Verification Strategy.```
-    In my case it ```Known hosts file verification strategy```. To do that see [below](#adding-dev-server-as-known-host).
+    In my case it ```Known hosts file verification strategy```. To do that see below.
 14. Save and launch the agent. You can build jobs on "dev-server" now.
 
 
