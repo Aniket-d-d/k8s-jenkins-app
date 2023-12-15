@@ -13,6 +13,7 @@ This repository provides instructions and configurations for setting up a Kubern
 - [Deploying Kubernetes Application with Jenkins](#deploying-kubernetes-application-with-jenkins)
 - [Accessing the Application](#accessing-the-application)
 - [Adding "dev-server" as Known host](#adding-dev-server-as-known-host)
+- [References](#refernces)
 
   
 ## Prerequisites
@@ -20,6 +21,7 @@ This repository provides instructions and configurations for setting up a Kubern
 Make sure you have the following prerequisites before starting the setup:
 
 - AWS account with EC2 instances created (e.g., "dev-server" and "ci-server").
+  "dev-server" should have atleast 2 vcpus and atleast 20 Gb of storage. 
 - SSH access to both instances.
 - Basic knowledge of Kubernetes and Jenkins.
 - DockerHub account.
@@ -126,6 +128,7 @@ Build a new Job on jenkins and copy the Jenkinsfile from this repo to pipeline s
 ## Accessing the Application
 1. Connect to "dev-server" using SSH.
 2. Enter command: kubectl port-forward --address 0.0.0.0 service/flask-app-service 30009:5001
+   Though port-forwarding is not advised, because of minikube I am using it for demonstartion purpose.
 3. Access the port 30009 on "dev-server" instance. You can Access the Application over there. (e.g http://dev-server-ip:30009)
    or you also access the application internally inside dev-server using ```minikube service flask-app-service```. You will be given internal IP, use curl on it. 
 
@@ -138,5 +141,10 @@ To add "dev-server" as Known hosts for Jenkins's ```Known hosts file verificatio
 4. Enter command: ```ssh-keyscan -H dev-server-IP >> /var/lib/jenkins/.ssh/known_hosts``` This will tell jenkins that "dev-server" is a known and authenticated host.
 5. Done. You can connect "dev-server" as agent-node.
 
+
+## References
+- Jenkins documentation: [https://www.jenkins.io/doc/](https://www.jenkins.io/doc/).
+- Minikube documentation: [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/).
+- Pod to Pod Communication: [https://kubernetes.io/docs/tutorials/services/connect-applications-service/](https://kubernetes.io/docs/tutorials/services/connect-applications-service/). 
 
 Thankyou.
