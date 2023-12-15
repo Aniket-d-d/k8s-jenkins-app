@@ -7,8 +7,8 @@ spec:
     app: flask-app  # Selects pods with the label 'app=flask-app-pod'
   ports:
     - name: flask
-	  protocol: TCP
+      protocol: TCP
       port: 5001  # Service port
-	  targetPort: 5000
+      targetPort: 5000
       nodePort: 30009  # NodePort - Externally accessible port on nodes
   type: NodePort
