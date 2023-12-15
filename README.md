@@ -146,6 +146,7 @@ To add "dev-server" as Known hosts for Jenkins's ```Known hosts file verificatio
 - Jenkins documentation: [https://www.jenkins.io/doc/](https://www.jenkins.io/doc/).
 - Minikube documentation: [https://minikube.sigs.k8s.io/docs/start/](https://minikube.sigs.k8s.io/docs/start/).
 - Pod to Pod Communication: [https://kubernetes.io/docs/tutorials/services/connect-applications-service/](https://kubernetes.io/docs/tutorials/services/connect-applications-service/).
+- Flask application Repo: [ak-flask-docker](https://github.com/Aniket-d-d/ak-flask-docker).
 
 **Note: Make sure you change the dockerhub username in flask-app-pod.yaml file on line no 10.
 
