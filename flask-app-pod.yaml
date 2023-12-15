@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: vasecom-appv1
-    image: devopsengineer400/flaskapp:v1
+    image: devopsengineer400/flaskapp:build_no
     ports:
     - containerPort: 5000  # adjust the port as per your Flask app configuration
   # Add an environment variable to configure Flask to connect to the database
