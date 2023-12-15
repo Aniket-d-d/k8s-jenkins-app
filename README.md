@@ -124,8 +124,10 @@ Build a new Job on jenkins and copy the Jenkinsfile from this repo to pipeline s
 
 
 ## Accessing the Application
-Open the port 30009 on "dev-server" instance. You can Access the Application over there.
-
+1. Connect to "dev-server" using SSH.
+2. Enter command: kubectl port-forward --address 0.0.0.0 service/flask-app-service 30009:5001
+3. Access the port 30009 on "dev-server" instance. You can Access the Application over there. (e.g http://dev-server-ip:30009)
+   or you also access the application internally inside dev-server using ```minikube service flask-app-service```. You will be given internal IP, use curl on it. 
 
 ## Adding "dev-server" as Known host
 
